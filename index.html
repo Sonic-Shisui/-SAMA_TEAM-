@@ -21,10 +21,9 @@
       height: 100vh;
       object-fit: cover;
       z-index: -2;
-      filter: brightness(0.65) saturate(1.2) blur(1px);
+      filter: brightness(0.75) saturate(1.1) blur(1px);
       background: #181a1b;
     }
-    /* Conteneur arc-en-ciel animé et semi-transparent */
     .container {
       max-width: 500px;
       margin: 40px auto;
@@ -35,24 +34,16 @@
       background: linear-gradient(270deg, #ff00cc, #00e0ff, #00ff85, #ffe600, #ff00cc);
       background-size: 1200% 1200%;
       animation: rainbow 10s linear infinite;
-      /* Opacité pour bien voir la vidéo derrière */
-      opacity: 0.95;
-      /* Pour que le texte soit bien lisible */
+      opacity: 0.70; /* Fiche plus transparente */
       box-shadow: 0 0 30px #000a, 0 8px 32px #0004;
-      border: 2.5px solid #fff4;
-      position: relative;
-      z-index: 1;
-      /* Un fond interne plus sombre pour le contenu */
-      /* Utilisé via .content-bg */
-    }
+      border: 2.5px solid #fff }
     @keyframes rainbow {
       0% {background-position:0% 50%;}
       50% {background-position:100% 50%;}
       100% {background-position:0% 50%;}
     }
-    /* Fond assombri pour le contenu de la fiche, pour améliorer la lisibilité */
     .content-bg {
-      background: rgba(24,26,27, 0.92);
+      background: rgba(24,26,27, 0.70); /* Aussi plus transparente */
       border-radius: 12px;
       padding: 20px 10px;
       box-shadow: 0 0 12px #0008 inset;
@@ -69,7 +60,7 @@
     .desc { margin-bottom: 25px; font-size: 1.07em; color: #b9eaff;}
     form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px;}
     input, textarea, select {
-      background: rgba(24,26,27,0.85);
+      background: rgba(24,26,27,0.60);
       color: #fff;
       border: 1.6px solid #fff8;
       border-radius: 5px;
@@ -126,6 +117,7 @@
       padding: 24px 18px;
       position: relative;
       color: #fff;
+      opacity: 0.95;
     }
     .popup textarea { width: 100%; height: 120px; border-radius: 7px; background: rgba(24,26,27,0.95); color:#fff;}
     .popup .close {
@@ -172,11 +164,11 @@
         <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
         <select id="mode" required>
           <option value="">Sélectionnes ton mode préféré</option>
-          <option value="BR">BR Classement</option>
+          <option value="BR"></option>
           <option value="CS">CS Classement</option>
         </select>
         <select id="grade" required disabled>
-          <option value="">Sélectionne ta grade</option>
+          <option value="">Sélectionne ton grade</option>
         </select>
         <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
         <button type="submit">Envoyer ma candidature</button>
@@ -214,15 +206,10 @@
         "Héroïque", "Maître", "Maître Élite", "Grand Maître"
       ]
     };
-    // Gestion du menu dérou.getElementById('grade');
-    modeSelect.addEventListener('change', function() {
-      gradeSelect.innerHTML = '<option value="">Sélectionne le grade</option>';
-      if (!this.value) {
-        gradeSelect.disabled = true;
-        return;
-      }
-      grades[this.value].forEach(function(grade) {
-        const opt = document.createElement('option');
+    // Gestion du menu déroulant dynamique
+    const modeSelect = document.getElementById('mode');
+    const gradeSelect = document.getElement].forEach(function(grade) {
+        const opt = document.createoption');
         opt.value = grade;
         opt.textContent = grade;
         gradeSelect.appendChild(opt);
