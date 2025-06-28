@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>💎~SAMA_TEAM~💎</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { background: #181a1b; color: #eee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0;}
+    .container { max-width: 500px; margin: 40px auto; background: #23272a; border-radius: 12px; box-shadow: 0 0 12px #0008; padding: 32px 24px; text-align: center;}
+    h1 { color: #00e0ff; margin-bottom: 10px; font-size: 2.2em; letter-spacing: 2px;}
+    .desc { margin-bottom: 25px; font-size: 1.07em; color: #b9eaff;}
+    form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px;}
+    input, textarea, select { background: #181a1b; color: #eee; border: 1px solid #00e0ff; border-radius: 5px; padding: 10px; font-size: 1em; outline: none; transition: border 0.2s;}
+    input:focus, textarea:focus, select:focus { border-color: #ff00f7;}
+    button { background: linear-gradient(90deg, #00e0ff, #ff00f7); color: #fff; border: none; padding: 12px; border-radius: 6px; font-size: 1.1em; cursor: pointer; font-weight: bold; transition: box-shadow 0.15s;}
+    button:hover { box-shadow: 0 0 10px #00e0ff88;}
+    .contact { margin-top: 20px; color: #ffccff; font-size: 0.98em;}
+    .popup-bg { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100vw; height: 100vh; background: #000a; }
+    .popup { background: #23272a; border-radius: 12px; box-shadow: 0 0 24px #000a; max-width: 420px; margin: 80px auto 0 auto; padding: 24px 18px; position: relative; color: #eee;}
+    .popup textarea { width: 100%; height: 120px; }
+    .popup .close { position: absolute; right: 18px; top: 12px; color: #ff00f7; background: none; border: none; font-size: 1.4em; cursor: pointer;}
+    .popup .links a { display: inline-block; margin: 10px 5px 2px 5px; color: #00e0ff; font-weight: bold; text-decoration: none; border-bottom: 1px dashed #ff00f7; }
+    .popup .links a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { .container { padding: 20px 8px; } .popup {max-width:95vw;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💎~SAMA_TEAM~💎</h1>
+    <div class="desc">
+      Rejoins notre guilde Free Fire !<br>
+      Remplis la fiche de recrutement ci-dessous pour postuler.<br>
+      <strong>On recherche des joueurs actifs, fair-play et motivés !</strong>
+    </div>
+    <form id="recruitForm">
+      <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
+      <input type="number" id="age" placeholder="Ton âge" min="10" max="99" required>
+      <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
+
+      <!-- Sélection du mode -->
+      <select id="mode" required>
+        <option value="">Sélectionnes ton mode préféré</option>
+        <option value="BR">BR Classement</option>
+        <option value="CS">CS Classement</option>
+      </select>
+      <!-- Sélection dynamique du grade -->
+      <select id="grade" required disabled>
+        <option value="">Sélectionne ta grade</option>
+      </select>
+
+      <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
+      <button type="submit">Envoyer ma candidature</button>
+    </form>
+    <div class="contact">
+      Un admin te contactera sur Facebook si ta candidature est retenue.<br><br>
+      🕴️| Admins FF : ʚʆɞ Sønïč Ĩsågï ʚʆɞ et ʚɸlISama Soma ʚɸlI<br>
+      FaceBook :<br>
+      <a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank">ˢᵗ╴ISAGI╴シ</a> |
+      <a href="https://www.facebook.com/profile.php?id=61550545504214" target="_blank">『TG』SOMA彡</a>
+    </div>
+  </div>
+
+  <div class="popup-bg" id="popupBg">
+    <div class="popup">
+      <button class="close" onclick="closePopup()">&times;</button>
+      <h2>Ta candidature est prête !</h2>
+      <p>Copie ce texte puis clique sur le profil d'un admin pour envoyer ta candidature sur Facebook Messenger :</p>
+      <textarea id="candidateText" readonly></textarea>
+      <div class="links">
+        <a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank">Contacter ˢᵗ╴ISAGI╴シ</a>
+        <a href="https://facebook.com/profile.php?id=61550545504214" target="_blank">Contacter 『TG』SOMA彡</a>
+      </div>
+      <small style="color:#b9eaff">MERCI POUR VOTRE CONTRIBUTION..NOUS ESPÉRONS QUE VOUS INVITEREZ VOS AMIS À SE JOINDRE A NOUS ET LA VICTOIRE SERA ASSURÉE !</small>
+    </div>
+  </div>
+
+  <script>
+    // Grades pour chaque mode
+    const grades = {
+      BR: [
+        "Bronze", "Argent", "Or", "Platine", "Diamant",
+        "Héroïque", "Élite Heroïque", "Maître", "Maitre Élite", "Grand Maitre"
+      ],
+      CS: [
+        "Bronze", "Argent", "Or", "Platine", "Diamant",
+        "Héroïque", "Maître", "Maître Élite", "Grand Maître"
+      ]
+    };
+
+    // Gestion du menu déroulant dynamique
+    const modeSelect = document.getElementById('mode');
+    const gradeSelect = document.getElementById('grade');
+
+    modeSelect.addEventListener('change', function() {
+      gradeSelect.innerHTML = '<option value="">Sélectionne le grade</option>';
+      if (!this.value) {
+        gradeSelect.disabled = true;
+        return;
+      }
+      grades[this.value].forEach(function(grade) {
+        const opt = document.createElement('option');
+        opt.value = grade;
+        opt.textContent = grade;
+        gradeSelect.appendChild(opt);
+      });
+      gradeSelect.disabled = false;
+    });
+
+    // Formulaire & popup
+    const form = document.getElementById('recruitForm');
+    const popupBg = document.getElementById('popupBg');
+    const candidateText = document.getElementById('candidateText');
+
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const pseudo = document.getElementById('pseudo').value;
+      const age = document.getElementById('age').value;
+      const idff = document.getElementById('idff').value;
+      const mode = document.getElementById('mode').value;
+      const grade = document.getElementById('grade').value;
+      const motivation = document.getElementById('motivation').value;
+      const text = 
+`Candidature pour 💎~SAMA_TEAM~💎
+
+Pseudo Free Fire : ${pseudo}
+Âge : ${age}
+ID Free Fire : ${idff}
+Mode : ${mode === "BR" ? "BR Classement" : "CS Classement"}
+Grade : ${grade}
+Motivation : ${motivation}`;
+      candidateText.value = text;
+      popupBg.style.display = "block";
+      candidateText.select();
+      candidateText.setSelectionRange(0, 99999);
+    }
+    function closePopup() {
+      popupBg.style.display = "none";
+    }
+  </script>
+</body>
+</html>
