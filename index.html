@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { background: #181a1b; color: #eee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0;}
+    .bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.35) blur(2px);
+      background: #181a1b;
+      top: 0;
+      left: 0;
+    }
     .container { max-width: 500px; margin: 40px auto; background: #23272a; border-radius: 12px; box-shadow: 0 0 12px #0008; padding: 32px 24px; text-align: center;}
     h1 { color: #00e0ff; margin-bottom: 10px; font-size: 2.2em; letter-spacing: 2px;}
     .desc { margin-bottom: 25px; font-size: 1.07em; color: #b9eaff;}
@@ -25,6 +40,8 @@
   </style>
 </head>
 <body>
+  <!-- Video d'arrière-plan -->
+  <video class="bg-video" src="http://goatbiin.onrender.com/uomSTeG69.mp4" autoplay muted loop playsinline></video>
   <div class="container">
     <h1>💎~SAMA_TEAM~💎</h1>
     <div class="desc">
@@ -34,20 +51,16 @@
     </div>
     <form id="recruitForm">
       <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
-      <input type="number" id="age" placeholder="Ton âge" min="10" max="99" required>
+      <input type="number" id="age" placeholder="Niveau du Compte" min="30" max="200" required>
       <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
-
-      <!-- Sélection du mode -->
       <select id="mode" required>
         <option value="">Sélectionnes ton mode préféré</option>
         <option value="BR">BR Classement</option>
         <option value="CS">CS Classement</option>
       </select>
-      <!-- Sélection dynamique du grade -->
       <select id="grade" required disabled>
         <option value="">Sélectionne ta grade</option>
       </select>
-
       <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
       <button type="submit">Envoyer ma candidature</button>
     </form>
@@ -59,7 +72,6 @@
       <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">『TG』SOMA彡</a>
     </div>
   </div>
-
   <div class="popup-bg" id="popupBg">
     <div class="popup">
       <button class="close" onclick="closePopup()">&times;</button>
@@ -73,7 +85,6 @@
       <small style="color:#b9eaff">MERCI POUR VOTRE CONTRIBUTION..NOUS ESPÉRONS QUE VOUS INVITEREZ VOS AMIS À SE JOINDRE A NOUS ET LA VICTOIRE SERA ASSURÉE !</small>
     </div>
   </div>
-
   <script>
     // Grades pour chaque mode
     const grades = {
@@ -86,11 +97,9 @@
         "Héroïque", "Maître", "Maître Élite", "Grand Maître"
       ]
     };
-
     // Gestion du menu déroulant dynamique
     const modeSelect = document.getElementById('mode');
     const gradeSelect = document.getElementById('grade');
-
     modeSelect.addEventListener('change', function() {
       gradeSelect.innerHTML = '<option value="">Sélectionne le grade</option>';
       if (!this.value) {
@@ -105,12 +114,10 @@
       });
       gradeSelect.disabled = false;
     });
-
     // Formulaire & popup
     const form = document.getElementById('recruitForm');
     const popupBg = document.getElementById('popupBg');
     const candidateText = document.getElementById('candidateText');
-
     form.onsubmit = function(e) {
       e.preventDefault();
       const pseudo = document.getElementById('pseudo').value;
@@ -120,14 +127,15 @@
       const grade = document.getElementById('grade').value;
       const motivation = document.getElementById('motivation').value;
       const text = 
-`Candidature pour 💎~SAMA_TEAM~💎
-
-Pseudo Free Fire : ${pseudo}
-Âge : ${age}
-ID Free Fire : ${idff}
-Mode : ${mode === "BR" ? "BR Classement" : "CS Classement"}
-Grade : ${grade}
-Motivation : ${motivation}`;
+ `𝙲𝙰𝙽𝙳𝙸𝙳𝙰𝚃𝚄𝚁𝙴 𝙿𝙾𝚄𝚁 𝙻𝙰 𝙶𝚄𝙸𝙻𝙳𝙴 💎~SAMA_TEAM~💎
+ ╭──────────────────⌾
+ │👤| 𝙿𝚜𝚎𝚞𝚍𝚘 𝙵𝚛𝚎𝚎𝙵𝚒𝚛𝚎 : ${pseudo}
+ │🧨| 𝙽𝚒𝚟𝚎𝚊𝚞 𝚍𝚞 𝚌𝚘𝚖𝚙𝚝𝚎 : ${age}
+ │🆔| 𝙸𝙳 𝚍𝚞 𝚌𝚘𝚖𝚙𝚝𝚎 : ${idff}
+ │🪄| 𝙼𝚘𝚍𝚎 𝚙𝚛𝚎𝚏𝚎𝚛𝚎𝚎 : ${mode === "BR" ? "BR Classement" : "CS Classement"}
+ │💉| 𝙶𝚛𝚊𝚍𝚎 : ${grade}
+ │☘️| 𝙼𝚘𝚝𝚒𝚟𝚊𝚝𝚒𝚘𝚗 : ${motivation}
+ ╰───────────────────⌾`;
       candidateText.value = text;
       popupBg.style.display = "block";
       candidateText.select();
