@@ -5,71 +5,188 @@
   <title>💎~SAMA_TEAM~💎</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { background: #181a1b; color: #eee; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0;}
+    body { 
+      background: #181a1b;
+      color: #eee;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      min-width: 100vw;
+      overflow-x: hidden;
+    }
     .bg-video {
       position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      width: auto;
-      height: auto;
-      z-index: -1;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
-      filter: brightness(0.35) blur(2px);
+      z-index: -2;
+      filter: brightness(0.65) saturate(1.2) blur(1px);
       background: #181a1b;
-      top: 0;
-      left: 0;
     }
-    .container { max-width: 500px; margin: 40px auto; background: #23272a; border-radius: 12px; box-shadow: 0 0 12px #0008; padding: 32px 24px; text-align: center;}
-    h1 { color: #00e0ff; margin-bottom: 10px; font-size: 2.2em; letter-spacing: 2px;}
+    /* Conteneur arc-en-ciel animé et semi-transparent */
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      border-radius: 16px;
+      box-shadow: 0 0 18px #000a;
+      padding: 32px 24px;
+      text-align: center;
+      background: linear-gradient(270deg, #ff00cc, #00e0ff, #00ff85, #ffe600, #ff00cc);
+      background-size: 1200% 1200%;
+      animation: rainbow 10s linear infinite;
+      /* Opacité pour bien voir la vidéo derrière */
+      opacity: 0.95;
+      /* Pour que le texte soit bien lisible */
+      box-shadow: 0 0 30px #000a, 0 8px 32px #0004;
+      border: 2.5px solid #fff4;
+      position: relative;
+      z-index: 1;
+      /* Un fond interne plus sombre pour le contenu */
+      /* Utilisé via .content-bg */
+    }
+    @keyframes rainbow {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    /* Fond assombri pour le contenu de la fiche, pour améliorer la lisibilité */
+    .content-bg {
+      background: rgba(24,26,27, 0.92);
+      border-radius: 12px;
+      padding: 20px 10px;
+      box-shadow: 0 0 12px #0008 inset;
+      z-index: 2;
+      position: relative;
+    }
+    h1 { 
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 2.2em;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #000c, 0 0 4px #00e0ff99;
+    }
     .desc { margin-bottom: 25px; font-size: 1.07em; color: #b9eaff;}
     form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px;}
-    input, textarea, select { background: #181a1b; color: #eee; border: 1px solid #00e0ff; border-radius: 5px; padding: 10px; font-size: 1em; outline: none; transition: border 0.2s;}
-    input:focus, textarea:focus, select:focus { border-color: #ff00f7;}
-    button { background: linear-gradient(90deg, #00e0ff, #ff00f7); color: #fff; border: none; padding: 12px; border-radius: 6px; font-size: 1.1em; cursor: pointer; font-weight: bold; transition: box-shadow 0.15s;}
-    button:hover { box-shadow: 0 0 10px #00e0ff88;}
-    .contact { margin-top: 20px; color: #ffccff; font-size: 0.98em;}
-    .popup-bg { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100vw; height: 100vh; background: #000a; }
-    .popup { background: #23272a; border-radius: 12px; box-shadow: 0 0 24px #000a; max-width: 420px; margin: 80px auto 0 auto; padding: 24px 18px; position: relative; color: #eee;}
-    .popup textarea { width: 100%; height: 120px; }
-    .popup .close { position: absolute; right: 18px; top: 12px; color: #ff00f7; background: none; border: none; font-size: 1.4em; cursor: pointer;}
-    .popup .links a { display: inline-block; margin: 10px 5px 2px 5px; color: #00e0ff; font-weight: bold; text-decoration: none; border-bottom: 1px dashed #ff00f7; }
-    .popup .links a:hover { text-decoration: underline; }
-    @media (max-width: 600px) { .container { padding: 20px 8px; } .popup {max-width:95vw;} }
+    input, textarea, select {
+      background: rgba(24,26,27,0.85);
+      color: #fff;
+      border: 1.6px solid #fff8;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1em;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #ff00f7;
+      box-shadow: 0 0 8px #ff00f799;
+    }
+    button {
+      background: linear-gradient(90deg, #ff00cc 0%, #00e0ff 50%, #fff000 100%);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-weight: bold;
+      transition: box-shadow 0.15s, transform 0.2s;
+      box-shadow: 0 0 10px #00e0ff88;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+    button:hover {
+      box-shadow: 0 0 18px #ff00cc99;
+      transform: scale(1.04);
+    }
+    .contact {
+      margin-top: 20px;
+      color: #ffccff;
+      font-size: 0.98em;
+      text-shadow: 0 0 6px #000a;
+    }
+    .popup-bg {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: #000a;
+    }
+    .popup {
+      background: linear-gradient(270deg, #ff00cc 0%, #00e0ff 50%, #ff00cc 100%);
+      background-size: 300% 300%;
+      animation: rainbow 6s linear infinite;
+      border-radius: 16px;
+      box-shadow: 0 0 24px #000a;
+      max-width: 420px;
+      margin: 80px auto 0 auto;
+      padding: 24px 18px;
+      position: relative;
+      color: #fff;
+    }
+    .popup textarea { width: 100%; height: 120px; border-radius: 7px; background: rgba(24,26,27,0.95); color:#fff;}
+    .popup .close {
+      position: absolute;
+      right: 18px; top: 12px;
+      color: #00e0ff;
+      background: none;
+      border: none;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .popup .close:hover { color: #ff00f7; }
+    .popup .links a {
+      display: inline-block;
+      margin: 10px 5px 2px 5px;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px dashed #ff00f7;
+      transition: color 0.2s;
+    }
+    .popup .links a:hover { color: #00e0ff; text-decoration: underline; }
+    @media (max-width: 600px) {
+      .container { padding: 8px; }
+      .popup {max-width:95vw;}
+    }
   </style>
 </head>
 <body>
-  <!-- Video d'arrière-plan -->
+  <!-- Vidéo d'arrière-plan -->
   <video class="bg-video" src="http://goatbiin.onrender.com/uomSTeG69.mp4" autoplay muted loop playsinline></video>
   <div class="container">
-    <h1>💎~SAMA_TEAM~💎</h1>
-    <div class="desc">
-      Rejoins notre guilde Free Fire !<br>
-      Remplis la fiche de recrutement ci-dessous pour postuler.<br>
-      <strong>On recherche des joueurs actifs, fair-play et motivés !</strong>
-    </div>
-    <form id="recruitForm">
-      <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
-      <input type="number" id="age" placeholder="Niveau du Compte" min="30" max="200" required>
-      <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
-      <select id="mode" required>
-        <option value="">Sélectionnes ton mode préféré</option>
-        <option value="BR">BR Classement</option>
-        <option value="CS">CS Classement</option>
-      </select>
-      <select id="grade" required disabled>
-        <option value="">Sélectionne ta grade</option>
-      </select>
-      <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
-      <button type="submit">Envoyer ma candidature</button>
-    </form>
-    <div class="contact">
-      Un admin te contactera sur Facebook si ta candidature est retenue.<br><br>
-      🕴️| Admins FF : ʚʆɞ Sønïč Ĩsågï ʚʆɞ et ʚɸlISama Soma ʚɸlI<br>
-      FaceBook :<br>
-      <a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank">ˢᵗ╴ISAGI╴シ</a> |
-      <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">『TG』SOMA彡</a>
+    <div class="content-bg">
+      <h1>💎~SAMA_TEAM~💎</h1>
+      <div class="desc">
+        Rejoins notre guilde Free Fire !<br>
+        Remplis la fiche de recrutement ci-dessous pour postuler.<br>
+        <strong>On recherche des joueurs actifs, fair-play et motivés !</strong>
+      </div>
+      <form id="recruitForm">
+        <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
+        <input type="number" id="age" placeholder="Niveau du Compte" min="1" max="200" required>
+        <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
+        <select id="mode" required>
+          <option value="">Sélectionnes ton mode préféré</option>
+          <option value="BR">BR Classement</option>
+          <option value="CS">CS Classement</option>
+        </select>
+        <select id="grade" required disabled>
+          <option value="">Sélectionne ta grade</option>
+        </select>
+        <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
+        <button type="submit">Envoyer ma candidature</button>
+      </form>
+      <div class="contact">
+        Un admin te contactera sur Facebook si ta candidature est retenue.<br><br>
+        🕴️| Admins FF : ʚʆɞ Sønïč Ĩsågï ʚʆɞ | ʚɸlISama Soma ʚɸlI<br>
+        FaceBook :https://www.facebook.com/profile.php?id=100090405019929" target="_blank">ˢᵗ╴ISAGI╴シ</a> |
+        <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">『TG』SOMA彡</a>
+      </div>
     </div>
   </div>
   <div class="popup-bg" id="popupBg">
@@ -97,9 +214,7 @@
         "Héroïque", "Maître", "Maître Élite", "Grand Maître"
       ]
     };
-    // Gestion du menu déroulant dynamique
-    const modeSelect = document.getElementById('mode');
-    const gradeSelect = document.getElementById('grade');
+    // Gestion du menu dérou.getElementById('grade');
     modeSelect.addEventListener('change', function() {
       gradeSelect.innerHTML = '<option value="">Sélectionne le grade</option>';
       if (!this.value) {
