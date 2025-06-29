@@ -120,6 +120,24 @@
             font-size: 0.98em;
             text-shadow: 0 0 6px #000a;
         }
+        .contact .facebook-link { /* Nouveau style pour les liens Facebook */
+            display: inline-flex;
+            align-items: center;
+            gap: 5px; /* Espace entre l'icône et le texte */
+            color: #ffccff; /* Couleur du texte par défaut */
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact .facebook-link:hover {
+            color: #00e0ff; /* Couleur au survol */
+            text-decoration: underline;
+        }
+        .contact .facebook-link img { /* Style pour l'icône Facebook */
+            height: 1.2em; /* Taille de l'icône */
+            vertical-align: middle;
+            filter: grayscale(0.2) brightness(1.2); /* Légère amélioration visuelle */
+        }
+
         .popup-bg {
             display: none;
             position: fixed;
@@ -217,8 +235,14 @@
             <div class="contact">
                 Un admin te contactera sur Facebook si ta candidature est retenue.<br><br>
                 🕴️| Admins FF : ʚʆɞ Sønïč Ĩsågï ʚʆɞ | ʚɸlISama Soma ʚɸlI<br>
-                FaceBook :<a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank">ˢᵗ╴ISAGI╴シ</a> |
-                <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">『TG』SOMA彡</a>
+                FaceBook :
+                <a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank" class="facebook-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"> ˢᵗ╴ISAGI╴シ
+                </a>
+                |
+                <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank" class="facebook-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"> 『TG』SOMA彡
+                </a>
             </div>
         </div>
     </div>
@@ -233,7 +257,7 @@
                 <a href="https://www.facebook.com/profile.php?id=100090405019929" target="_blank">Contacter ˢᵗ╴ISAGI╴シ</a>
                 <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">Contacter 『TG』SOMA彡</a>
             </div>
-            <small style="color:#b9eaff">MERCI POUR VOTRE CONTRIBUTION..NOUS ESPÉRONS QUE VOUS INVITEREZ VOS AMIS À SE JOINDRE A NOUS ET LA VICTOIRE SERA ASSURÉE !</small>
+            <small style="color:#b9eaff">MERCI POUR VOTRE CONTRIBUTION..NOUS ESPÉRONS QUE VOUS INVITEREZ VOS AMIS À SE JOINDRE A NUS ET LA VICTOIRE SERA ASSURÉE !</small>
         </div>
     </div>
 
@@ -252,15 +276,15 @@
 
         // Gestion du menu déroulant dynamique
         const modeSelect = document.getElementById('mode');
-        const gradeSelect = document.getElementById('grade'); // Correction ici
+        const gradeSelect = document.getElementById('grade');
 
         modeSelect.addEventListener('change', function() {
             const selectedMode = this.value;
-            gradeSelect.innerHTML = '<option value="">Sélectionne ton grade</option>'; // Réinitialiser les options
+            gradeSelect.innerHTML = '<option value="">Sélectionne ton grade</option>';
 
             if (selectedMode && grades[selectedMode]) {
                 grades[selectedMode].forEach(function(grade) {
-                    const opt = document.createElement('option'); // Correction ici
+                    const opt = document.createElement('option');
                     opt.value = grade;
                     opt.textContent = grade;
                     gradeSelect.appendChild(opt);
@@ -279,7 +303,7 @@
         form.onsubmit = function(e) {
             e.preventDefault();
             const pseudo = document.getElementById('pseudo').value;
-            const level = document.getElementById('level').value; // Correction ici, utilisé 'level'
+            const level = document.getElementById('level').value;
             const idff = document.getElementById('idff').value;
             const mode = document.getElementById('mode').value;
             const grade = document.getElementById('grade').value;
