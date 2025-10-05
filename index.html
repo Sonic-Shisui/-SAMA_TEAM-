@@ -1,316 +1,374 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>💎~SAMA_TEAM~💎</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background: #181a1b;
-      color: #eee;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    #particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .bg-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      z-index: -2;
-      filter: brightness(0.75) saturate(1.1) blur(1px);
-      background: #181a1b;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: 40px auto;
-      border-radius: 16px;
-      box-shadow: 0 0 18px #000a;
-      padding: 32px 24px;
-      text-align: center;
-      background: linear-gradient(270deg, #ff00cc, #00e0ff, #00ff85, #ffe600, #ff00cc);
-      background-size: 1200% 1200%;
-      animation: rainbow 10s linear infinite;
-      opacity: 0.70;
-      border: 2.5px solid #fff;
-    }
-
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .content-bg {
-      background: rgba(24, 26, 27, 0.70);
-      border-radius: 12px;
-      padding: 20px 10px;
-      box-shadow: 0 0 12px #0008 inset;
-    }
-
-    h1 {
-      color: #fff;
-      margin-bottom: 10px;
-      font-size: 2.4em;
-      letter-spacing: 2px;
-      text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff, 0 0 20px #ff00cc, 0 0 40px #ff00cc;
-      animation: neonGlow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes neonGlow {
-      from { text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff, 0 0 20px #ff00cc, 0 0 40px #ff00cc; }
-      to { text-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff, 0 0 30px #ff66ff, 0 0 60px #ff66ff; }
-    }
-
-    .desc { margin-bottom: 25px; font-size: 1.07em; color: #b9eaff; }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    input, select {
-      background: rgba(24, 26, 27, 0.60);
-      color: #fff;
-      border: 1.6px solid #fff8;
-      border-radius: 5px;
-      padding: 10px;
-      font-size: 1em;
-      outline: none;
-      transition: border 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px #0002;
-    }
-
-    input:focus, select:focus {
-      border-color: #ff00f7;
-      box-shadow: 0 0 8px #ff00f799, 0 0 15px #00e0ff66;
-    }
-
-    button {
-      background: linear-gradient(90deg, #ff00cc 0%, #00e0ff 50%, #fff000 100%);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 1.1em;
-      cursor: pointer;
-      font-weight: bold;
-      transition: box-shadow 0.15s, transform 0.2s;
-      box-shadow: 0 0 10px #00e0ff88;
-      letter-spacing: 1px;
-      margin-top: 6px;
-    }
-
-    button:hover {
-      box-shadow: 0 0 18px #ff00cc99;
-      transform: scale(1.04);
-    }
-
-    .contact {
-      margin-top: 20px;
-      color: #ffccff;
-      font-size: 0.98em;
-      text-shadow: 0 0 6px #000a;
-    }
-
-    .liste-membres {
-      margin-top: 25px;
-      text-align: left;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 15px #00e0ff;
-    }
-
-    .liste-membres h2 {
-      text-align: center;
-      color: #00e0ff;
-      margin-bottom: 10px;
-    }
-
-    .membre {
-      border-bottom: 1px solid #00e0ff55;
-      padding: 6px 0;
-    }
-
-    .places {
-      text-align: center;
-      margin-top: 10px;
-      color: #0ff;
-      font-weight: bold;
-    }
-
-    .plein { color: #ff4444; font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <title>💎~SAMA_TEAM~💎</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #181a1b;
+            color: #eee;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            min-width: 100vw;
+            overflow-x: hidden;
+        }
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.75) saturate(1.1) blur(1px);
+            background: #181a1b;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 16px;
+            box-shadow: 0 0 18px #000a;
+            padding: 32px 24px;
+            text-align: center;
+            background: linear-gradient(270deg, #ff00cc, #00e0ff, #00ff85, #ffe600, #ff00cc);
+            background-size: 1200% 1200%;
+            animation: rainbow 10s linear infinite;
+            opacity: 0.70;
+            box-shadow: 0 0 30px #000a, 0 8px 32px #0004;
+            border: 2.5px solid #fff;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .content-bg {
+            background: rgba(24, 26, 27, 0.70);
+            border-radius: 12px;
+            padding: 20px 10px;
+            box-shadow: 0 0 12px #0008 inset;
+            z-index: 2;
+            position: relative;
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 12px #000c, 0 0 4px #00e0ff99;
+        }
+        .desc {
+            margin-bottom: 25px;
+            font-size: 1.07em;
+            color: #b9eaff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        input, textarea, select {
+            background: rgba(24, 26, 27, 0.60);
+            color: #fff;
+            border: 1.6px solid #fff8;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1em;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px #0002;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #ff00f7;
+            box-shadow: 0 0 8px #ff00f799;
+        }
+        button {
+            background: linear-gradient(90deg, #ff00cc 0%, #00e0ff 50%, #fff000 100%);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: box-shadow 0.15s, transform 0.2s;
+            box-shadow: 0 0 10px #00e0ff88;
+            letter-spacing: 1px;
+            margin-top: 6px;
+        }
+        button:hover {
+            box-shadow: 0 0 18px #ff00cc99;
+            transform: scale(1.04);
+        }
+        .contact {
+            margin-top: 20px;
+            color: #ffccff;
+            font-size: 0.98em;
+            text-shadow: 0 0 6px #000a;
+        }
+        .contact .facebook-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #ffccff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .contact .facebook-link:hover {
+            color: #00e0ff;
+            text-shadow: 0 0 12px #00e0ff99, 0 0 18px #ff00cc88;
+            text-decoration: underline;
+        }
+        .contact .facebook-link img {
+            height: 1.2em;
+            vertical-align: middle;
+            filter: grayscale(0.2) brightness(1.2);
+        }
+        /* Popup + badge */
+        .popup-bg {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000a;
+        }
+        .popup {
+            background: linear-gradient(270deg, #ff00cc 0%, #00e0ff 50%, #ff00cc 100%);
+            background-size: 300% 300%;
+            animation: rainbow 6s linear infinite;
+            border-radius: 16px;
+            box-shadow: 0 0 24px #000a;
+            max-width: 420px;
+            margin: 80px auto 0 auto;
+            padding: 24px 18px;
+            position: relative;
+            color: #fff;
+            opacity: 0.95;
+            text-align: center;
+        }
+        .popup textarea {
+            width: 100%;
+            height: 120px;
+            border-radius: 7px;
+            background: rgba(24, 26, 27, 0.95);
+            color: #fff;
+        }
+        .popup .close {
+            position: absolute;
+            right: 18px;
+            top: 12px;
+            color: #00e0ff;
+            background: none;
+            border: none;
+            font-size: 1.4em;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .popup .close:hover {
+            color: #ff00f7;
+        }
+        .popup .links a {
+            display: inline-block;
+            margin: 10px 5px 2px 5px;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 1px dashed #ff00f7;
+            transition: all 0.3s;
+        }
+        .popup .links a:hover {
+            color: #00e0ff;
+            text-shadow: 0 0 10px #00e0ff99, 0 0 12px #ff00cc88;
+            text-decoration: underline;
+        }
+        /* Badge de candidature */
+        .badge {
+            display: inline-block;
+            background: #00ff85;
+            color: #181a1b;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: badgeGlow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 0 4px #00ff85aa; transform: scale(1); }
+            100% { box-shadow: 0 0 12px #00ff85ff, 0 0 24px #00e0ff88; transform: scale(1.1); }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 8px; }
+            .popup { max-width: 95vw; }
+        }
+        /* Confettis */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
+            animation: fall 3s linear forwards;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
 
-  <video class="bg-video" src="https://i.imgur.com/UYywEVg.mp4" autoplay muted loop playsinline></video>
-  <canvas id="particles"></canvas>
+    <video class="bg-video" src="https://i.imgur.com/UYywEVg.mp4" autoplay muted loop playsinline></video>
 
-  <div class="container">
-    <div class="content-bg">
-      <h1>💎~SAMA_TEAM~💎</h1>
-      <div class="desc">
-        Rejoins notre guilde Free Fire !<br>
-        Remplis la fiche de recrutement ci-dessous.<br>
-        ⚔️ Héroïque sur BR et CS requis + Niveau ≥ 40 !
-      </div>
-
-      <!-- ✅ FORMULAIRE -->
-      <form id="recruitForm">
-        <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
-        <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
-
-        <select id="gradeBR" required>
-          <option value="">— Ton grade Battle Royale —</option>
-          <option>Bronze</option><option>Argent</option><option>Or</option>
-          <option>Platine</option><option>Diamant</option>
-          <option>Héroïque</option><option>Élite Héroïque</option><option>Maître</option><option>Grand Maître</option>
-        </select>
-
-        <select id="gradeCS" required>
-          <option value="">— Ton grade Clash Squad —</option>
-          <option>Bronze</option><option>Argent</option><option>Or</option>
-          <option>Platine</option><option>Diamant</option>
-          <option>Héroïque</option><option>Élite Héroïque</option><option>Maître</option><option>Grand Maître</option>
-        </select>
-
-        <input type="number" id="niveau" placeholder="Niveau de ton compte (≥ 40)" min="1" required>
-
-        <button type="submit">🚀 Envoyer ma candidature</button>
-        <p id="message"></p>
-      </form>
-
-      <!-- ✅ LISTE DES MEMBRES -->
-      <div class="liste-membres">
-        <h2>👥 Membres de la Guilde</h2>
-        <div id="membres"></div>
-        <div class="places">Places restantes : <span id="places">45</span> / 45</div>
-      </div>
-
-      <div class="contact">
-        🕴️| Admins FF : ʚʆɞ Sømå Sønïč ʚʆɞ | ʚɸlISama Soma ʚɸlI<br>
-        FaceBook :
-        <a href="https://www.facebook.com/profile.php?id=61578433048588" target="_blank">ˢᵗ╴ミ.SONIC.彡</a> |
-        <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">ˢᵗ╴♛ՏOᗰᗩ♛☾❖☽</a>
-      </div>
+    <div class="container">
+        <div class="content-bg">
+            <h1>💎~SAMA_TEAM~💎</h1>
+            <div class="desc">
+                Rejoins notre guilde Free Fire !<br>
+                Remplis la fiche de recrutement ci-dessous pour postuler.<br>
+                <strong>On recherche des joueurs actifs, fair-play et motivés !</strong>
+            </div>
+            <form id="recruitForm">
+                <input type="text" id="pseudo" placeholder="Ton pseudo Free Fire" required>
+                <input type="number" id="level" placeholder="Niveau du Compte" min="40" max="200" required>
+                <input type="text" id="idff" placeholder="Ton ID Free Fire" required>
+                <select id="mode" required>
+                    <option value="">Sélectionnes ton mode préféré</option>
+                    <option value="BR">BR Classement</option>
+                    <option value="CS">CS Classement</option>
+                </select>
+                <select id="grade" required disabled>
+                    <option value="">Sélectionne ton grade</option>
+                </select>
+                <textarea id="motivation" placeholder="Dis-nous pourquoi tu veux rejoindre la guilde !" rows="3" required></textarea>
+                <button type="submit">Envoyer ma candidature</button>
+            </form>
+            <div class="contact">
+                Un admin te contactera sur Facebook si ta candidature est retenue.<br><br>
+                🕴️| Admins FF : ʚʆɞ Sømå Sønïč ʚʆɞ | ʚɸlISama Soma ʚɸlI<br>
+                FaceBook :
+                <a href="https://www.facebook.com/profile.php?id=61578433048588" target="_blank" class="facebook-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">ˢᵗ╴ミ.SONIC.彡
+                </a>
+                |
+                <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank" class="facebook-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">ˢᵗ╴♛ՏOᗰᗩ♛☾❖☽
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    // 🌌 Particules
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    <div class="popup-bg" id="popupBg">
+        <div class="popup">
+            <div class="badge">🎉 Candidature prête ! 🎉</div>
+            <button class="close" onclick="closePopup()">&times;</button>
+            <h2>Ta candidature est prête !</h2>
+            <p>Copie ce texte puis clique sur le profil d'un admin pour envoyer ta candidature sur Facebook Messenger :</p>
+            <textarea id="candidateText" readonly></textarea>
+            <div class="links">
+                <a href="https://www.facebook.com/profile.php?id=61578433048588" target="_blank">Contacter ˢᵗ╴ミ.SONIC.彡</a>
+                <a href="https://www.facebook.com/profile.php?id=61572981222700" target="_blank">Contacter ˢᵗ╴♛ՏOᗰᗩ♛☾❖☽</a>
+            </div>
+            <small style="color:#b9eaff">MERCI POUR VOTRE CONTRIBUTION..NOUS ESPÉRONS QUE VOUS INVITEREZ VOS AMIS À SE JOINDRE A NOUS ET LA VICTOIRE SERA ASSURÉE !</small>
+        </div>
+    </div>
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedY = Math.random() * -0.3 - 0.1;
-        this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
-      }
-      update() {
-        this.y += this.speedY;
-        if (this.y < 0) this.y = canvas.height;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-    }
+    <script>
+        const grades = {
+            BR: ["Bronze","Argent","Or","Platine","Diamant","Héroïque","Élite Heroïque","Maître","Maitre Élite","Grand Maitre"],
+            CS: ["Bronze","Argent","Or","Platine","Diamant","Héroïque","Élite Héroïque","Maître","Maître Élite","Grand Maître"]
+        };
 
-    function initParticles() {
-      for (let i = 0; i < 100; i++) particlesArray.push(new Particle());
-    }
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach(p => { p.update(); p.draw(); });
-      requestAnimationFrame(animateParticles);
-    }
-    initParticles();
-    animateParticles();
+        const modeSelect = document.getElementById('mode');
+        const gradeSelect = document.getElementById('grade');
 
-    // ⚙️ LOGIQUE GUILDE
-    const maxPlaces = 45;
-    let membres = JSON.parse(localStorage.getItem('membresSAMA')) || [];
+        modeSelect.addEventListener('change', function() {
+            const selectedMode = this.value;
+            gradeSelect.innerHTML = '<option value="">Sélectionne ton grade</option>';
+            if (selectedMode && grades[selectedMode]) {
+                grades[selectedMode].forEach(function(grade) {
+                    const opt = document.createElement('option');
+                    opt.value = grade;
+                    opt.textContent = grade;
+                    gradeSelect.appendChild(opt);
+                });
+                gradeSelect.disabled = false;
+            } else {
+                gradeSelect.disabled = true;
+            }
+        });
 
-    const membresDiv = document.getElementById('membres');
-    const placesSpan = document.getElementById('places');
-    const message = document.getElementById('message');
-    const form = document.getElementById('recruitForm');
+        const form = document.getElementById('recruitForm');
+        const popupBg = document.getElementById('popupBg');
+        const candidateText = document.getElementById('candidateText');
 
-    function afficherMembres() {
-      membresDiv.innerHTML = membres.map((m, i) =>
-        `<div class="membre">#${i + 1} — <b>${m.nom}</b> (ID: ${m.id}) 🏅 BR: ${m.gradeBR} | CS: ${m.gradeCS} | Niveau ${m.niveau}</div>`
-      ).join("");
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            const pseudo = document.getElementById('pseudo').value;
+            const level = parseInt(document.getElementById('level').value);
+            const idff = document.getElementById('idff').value;
+            const mode = document.getElementById('mode').value;
+            const grade = document.getElementById('grade').value;
+            const motivation = document.getElementById('motivation').value;
 
-      placesSpan.textContent = maxPlaces - membres.length;
-      localStorage.setItem('membresSAMA', JSON.stringify(membres));
-    }
+            // Vérification du niveau
+            if(level < 40){
+                alert("⚠️ Ton compte doit être minimum niveau 40 !");
+                return;
+            }
 
-    afficherMembres();
+            // Vérification du grade minimum
+            const minGradeIndex = grades[mode].indexOf("Héroïque"); 
+            const selectedGradeIndex = grades[mode].indexOf(grade);
+            if(selectedGradeIndex < minGradeIndex){
+                alert("⚠️ Ton grade doit être au moins Héroïque !");
+                return;
+            }
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const nom = pseudo.value.trim();
-      const id = idff.value.trim();
-      const gradeBR = gradeBR.value;
-      const gradeCS = gradeCS.value;
-      const niveau = parseInt(document.getElementById('niveau').value);
+            const text =
+`𝙲𝙰𝙽𝙳𝙸𝙳𝙰𝚃𝚄𝚁𝙴 𝙿𝙾𝚄𝚁 𝙻𝙰 𝙶𝚄𝙸𝙻𝙳𝙴 💎~SAMA_TEAM~💎
 
-      // 🔍 Vérifications
-      const raisons = [];
-      if (niveau < 40) raisons.push("Ton compte doit être niveau 40 minimum.");
-      if (["Héroïque", "Grand Maître"].indexOf(gradeBR) === -1)
-        raisons.push("Tu dois être Héroïque ou plus en mode Battle Royale.");
-      if (["Héroïque", "Grand Maître"].indexOf(gradeCS) === -1)
-        raisons.push("Tu dois être Héroïque ou plus en mode Clash Squad.");
+╭──────────────────⌾
+│👤| 𝙿𝚜𝚎𝚞𝚍𝚘 𝙵𝚛𝚎𝚎𝙵𝚒𝚛𝚎 : ${pseudo}
+│🧨| 𝙽𝚒𝚟𝚎𝚊𝚞 𝚍𝚞 𝚌𝚘𝚖𝚙𝚝𝚎 : ${level}
+│🆔| 𝙸𝙳 𝚍𝚞 𝚌𝚘𝚖𝚙𝚝𝚎 : ${idff}
+│🪄| 𝙼𝚘𝚍𝚎 𝚙𝚛𝚎𝚏𝚎𝚛𝚎𝚎 : ${mode === "BR" ? "BR Classement" : "CS Classement"}
+│💉| 𝙶𝚛𝚊𝚍𝚎 : ${grade}
+│☘️| 𝙼𝚘𝚝𝚒𝚟𝚊𝚝𝚒𝚘𝚗 : ${motivation}
+╰───────────────────⌾`;
 
-      if (raisons.length > 0) {
-        message.innerHTML = `❌ <b>Candidature refusée</b><br>${raisons.join("<br>")}<br><br>📩 Contacte les admins Facebook pour plus d’infos.`;
-        return;
-      }
+            candidateText.value = text;
+            popupBg.style.display = "block";
+            candidateText.select();
+            candidateText.setSelectionRange(0, 99999);
 
-      if (membres.some(m => m.nom.toLowerCase() === nom.toLowerCase() || m.id === id)) {
-        message.innerHTML = "⚠️ Ce joueur est déjà inscrit !";
-        return;
-      }
+            launchConfetti();
+        }
 
-      if (membres.length >= maxPlaces) {
-        message.innerHTML = "❌ Guilde complète !";
-        return;
-      }
+        function closePopup() {
+            popupBg.style.display = "none";
+        }
 
-      membres.push({ nom, id, gradeBR, gradeCS, niveau });
-      afficherMembres();
-      form.reset();
-      message.innerHTML = "✅ Candidature acceptée ! Bienvenue dans la guilde 💎";
-    });
-  </script>
+        // 🎊 Confettis simples
+        function launchConfetti() {
+            for(let i=0;i<100;i++){
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random()*window.innerWidth+'px';
+                confetti.style.background = `hsl(${Math.random()*360},100%,50%)`;
+                confetti.style.width = confetti.style.height = (5+Math.random()*7)+'px';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+    </script>
 </body>
 </html>
